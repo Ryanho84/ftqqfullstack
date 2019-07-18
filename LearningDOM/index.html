@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning DOM - Document对象</title>
+
+    <script>
+        function createDoc(){
+            var doc = document.open("text/html", "replace");
+            var txt = "<!DOCTYPE html><html><body>学习 DOM　很有趣!</body></html>";
+            doc.write(txt);
+            doc.close();
+        }
+        function getValue(){
+            var x = document.getElementById("myHeader");
+            alert(x.innerHTML);
+        }
+        function getElement(){
+            var x = document.getElementsByName("x");
+            alert(x.length);
+        }
+        function getElements(){
+            var x = document.getElementsByTagName("input");
+            alert(x.length);
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        Document对象
+    </div>
+    <style>
+        #div1{
+            padding:10px;
+            border: 1px dashed #000000;
+            width: 900px;
+            margin-top:10px;
+            margin-bottom: 10px;
+            font-size:20px;
+            }
+    </style>
+    <script type="text/javascript">
+        document.write("hello world!");
+    </script>
+    <script type="text/javascript">
+        document.write("<h1>Hello world</h1>");
+    </script>
+    
+    <a name="html">HTML 教程</a><br>
+    <a name="CSS">CSS 教程</a><br>
+    <a name="xml">XML 教程</a><br>
+
+    <p>猫的数量：
+        <script>
+        document.write(document.anchors.length);
+        </script>
+    </p>
+
+    <p>文档中的第一个猫：
+        <script>document.write(document.anchors[0].innerHTML);</script>
+    </p>
+
+    <form name ="Form1"></form>
+    <form name ="Form2"></form>
+    <form></form>
+    <p>表单的数目：
+        <script>document.write(document.forms.length);</script>
+    </p>
+
+    <p>
+        第一个表单的名称：
+        <script>document.write(document.forms[0].name);</script>
+    </p>
+
+    <img id ="runoob1" src="images/klematis.jpg" width="150" height="113">
+    <img id ="runoob2" src="images/klematis2.jpg" width="152" height="128">
+    <p>
+        图像的数目：
+        <script>document.write(document.images.length);</script>
+    </p>
+
+    <p>
+        第一个图像的ID：
+        <script>document.write(document.images[0].id);</script>
+    </p>
+
+    <img src="images/planets.gif" width="145" height="126" alt="Planets" usemap="#planetmap">
+    <map name="planetmap">
+        <area id ="Sun" shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun">
+        <area id="Mercury" shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">
+        <area id="Venus" shape="circle" coords="124,58,8" href="venus.htm" alt="Venus">
+    </map>
+    <p>
+        <a href="/js/">JS教程</a>
+    </p>
+    <p>
+        链接/地址数目：
+        <script>document.write(document.links.length);</script>
+    </p>
+
+    <p>
+        第一个链接地址的ID：
+        <script>document.write(document.links[0].id);</script>
+    </p>
+
+    <p>
+        与此文档相关的Cookies:
+        <script>document.write(document.cookie);</script>
+    </p>
+
+    <p>
+        加载这个文件的域名：
+        <script>document.write(document.domain);</script>
+    </p>
+    <p>
+        文档最后修改时间：
+        <script>document.write(document.lastModified);</script>
+    </p>
+    <p>
+        本文当的引用地址：
+        <script>document.write(document.referrer);</script>
+    </p>
+    <p>
+        文档的标题：
+        <script>document.write(document.title);</script>
+    </p>
+    <p>
+        返回完整的URL：
+        <script>document.write(document.URL);</script>
+    </p>
+    <input type="button" value="新文档" onclick="createDoc()">
+
+    <p>
+        注意write()方法不会在每个语句后面新增一行：
+        <pre>
+            <script>
+            document.write("hello world! ");
+            document.write("have a nice day!");
+            </script>
+        </pre>
+    </p>
+
+    <p>
+        注意writeln()方法在每一个语句后面新增一行：
+        <pre>
+            <script>document.writeln("hello world!");document.write("            have a nice day!");</script>
+        </pre>
+    </p>
+
+    <h1 id = "myHeader" onclick="getValue()">点击我！</h1>
+    
+    <div id = "div2">
+        猫： 
+        <input name = "x" type="radio" value="猫">
+        狗：
+        <input type="radio" name="x" value="狗">
+        <input type="button" value="多少名称为x的元素？" onclick="getElement()">
+    </div>
+    <style>
+        #div2{
+            margin: 10px;
+        }
+    </style>
+    <div>
+        <input type="text" size="20"><br>
+        <input type="text" size="20"><br>
+        <input type="text" size="20"><br><br>
+        <input type="button" value="多少input元素" onclick="getElements()">
+    </div>
+
+</body>
+</html>
