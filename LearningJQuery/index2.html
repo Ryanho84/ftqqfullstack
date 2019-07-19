@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Learning JQuery - JQuery事件</title>
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("p#clk").click(function(){
+                $(this).hide();
+            });
+        });
+
+        $(document).ready(function(){
+            $("p#dclk").dblclick(function(){
+                $(this).hide();
+            });
+        });
+
+        $(function(){
+            $("#p1").mouseenter(function(){
+                alert('您的鼠标移动到了 id = "p1"的元素上');
+            });
+        });
+        $(function(){
+            $("#p2").mouseleave(function(){
+                alert('你的鼠标离开了id = "p2"的元素上');
+            });
+        });
+
+        $(function(){
+            $("#p3").mousedown(function(){
+                alert("鼠标在该段落上按下");
+            });
+        });
+
+        $(function(){
+            $("#p4").mouseup(function(){
+                alert("鼠标在该段落上松开");
+            });
+        });
+
+        $(function(){
+            $("#p5").hover(
+                function(){
+                    alert("我进入啦~");
+                },
+                function(){
+                    alert("我拔出啦~");
+                }
+            )
+        });
+
+        $(document).ready(function(){
+            $("input").focus(function(){
+                $(this).css("background-color","#cccccc");
+            });
+            $("input").blur(function(){
+                $(this).css("background-color","#ffffff");
+            });
+        });
+
+        $(document).ready(function(){
+            $("#hide").click(function(){
+                $("#p6").hide();
+            });
+            $("#show").click(function(){
+                $("#p6").show();
+            });
+        });
+
+        $(document).ready(function(){
+            $("#b2").click(function(){
+                $("#p7").toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            $(".hide").click(function(){
+                $(this).parent(".ex").hide("show");   //this 表明当前焦点按钮所在的div隐藏
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">
+        JQuery选择器
+    </div>
+    <style>
+    #div1{
+        padding:10px;
+        border: 1px dashed #000000;
+        width: 900px;
+        margin-top:10px;
+        margin-bottom: 10px;
+        font-size:20px;
+        }
+    </style>
+    <p id="clk">如果点我就会消失</p>
+    <p id="clk">点我也消失</p>
+    <p id="clk">点我也消失</p>
+
+    <p id="dclk">如果双击我就会消失</p>
+    <p id="dclk">双击我也消失</p>
+    <p id="dclk">双击我也消失</p>
+    <style>
+        #dclk{
+            color:red;
+        }
+    </style>
+
+    <p id="p1">鼠标指针进入此处，会看到弹窗</p>
+    <p id="p2" style="color:blue">鼠标指针离开此处，会看到弹窗</p>
+    <p id="p3">这是一个段落，鼠标在这个段落上按下就弹框</p>
+    <p id="p4" style="color:red">这是一个段落，鼠标在这个段落上松开就弹框</p>
+
+    <p id="p5" style="color:seagreen">这是一个段落，进出都会弹框</p>
+
+    Name: <input type="text" name="fullname"><br>
+    Email: <input type="text" name="email"><br>
+    <div style="margin: 10px">
+        <p id="p6">如果你点击隐藏按钮我就会消失；如果点击显示按钮我又回来啦</p>
+        <button id="hide">隐藏</button>
+        <button id="show">显示</button>
+    </div>
+    <div style="margin:20px">
+        <button id="b2">隐藏/显示</button>
+        <p id="p7">这是一个文本段落</p>
+    </div>
+    <h3>Google</h3>
+    <div class="ex">
+        <button class="hide">点击隐藏</button>
+        <p><a href="www.google.com">google网址</a></p>
+    </div>
+    <h3>bing</h3>
+    <div class="ex">
+        <button class="hide">点击隐藏</button>
+        <p><a href="www.bing.com">bing网址</a></p>
+    </div>
+    <style type="text/css">
+        div.ex{
+            width: 800px;
+            height: 100px;
+            background-color: #fff;
+            border: 1px solid rgb(66, 66, 66);
+        }
+    </style>
+    
+
+</body>
+</html>
