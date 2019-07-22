@@ -1,0 +1,19 @@
+[feedtype = "ad"]{
+	display: none;
+}
+
+.WB_main_rn{
+	display: none!important;
+}
+
+
+
+/* #v6_pl_rightmod_attfeed
+{
+	display: none;
+}
+
+[id^="v6_pl_rightmod"]
+{
+	display: none;
+} */
